@@ -15,6 +15,8 @@ Created on Thu Sep 13 15:42:03 2018
 import numpy as np
 from mayavi import mlab
 import pandas as pd
+from tvtk.api import tvtk
+from tvtk.common import configure_input_data
 
 numparticles = 10
 interpstep = 100
@@ -56,6 +58,9 @@ def updateAnimation(xx,yy,zz):
         mlab.draw(figure=None)
         ball.mlab_source.set(x = xx[:,t], y =  yy[:,t], z = zz[:,t])
         
+ #       for k in range(0,np.size(xx,axis=0)):
+ #           text[k].mlab_source.reset(x = xx[k,t], y = yy[k,t], z = zz[k,t])
+
         
         #for j in range(0,numparticles):
         #    for update in reversed(range(0,DragonFrame)):
@@ -85,8 +90,30 @@ def updateAnimation(xx,yy,zz):
         
 
 #set background color to black and plot
-mlab.figure(figure=None,bgcolor = (0,0,0))
+v = mlab.figure(figure=None,bgcolor = (0,0,0))
 ball = mlab.points3d(xx[:,0], yy[:,0], zz[:,0],scale_factor = 8, color=(0.85,0,0))
+text = list()
+for k in range(0,np.size(xx,axis=0)):
+    text.append(mlab.text3d(xx[k,0], yy[k,0], zz[k,0],'cell ' + repr(k),scale=(5,5,5)))
+
+# Create a first sphere
+# The source generates data points
+#sphere = tvtk.SphereSource(center=(0, 0, 0), radius=20)
+# The mapper converts them into position in, 3D with optionally color (if
+# scalar information is available).
+#sphere_mapper = tvtk.PolyDataMapper()
+#configure_input_data(sphere_mapper, sphere.output)
+#sphere.update()
+
+# The Property will give the parameters of the material.
+#p = tvtk.Property(opacity=0.2, color=(0, 1, 1))
+# The actor is the actually object in the scene.
+#sphere_actor = tvtk.Actor(mapper=sphere_mapper, property=p)
+#v.scene.add_actor(sphere_actor)
+
+b = mlab.text3d(0,0,0,'hello world',scale=(2,2,2))
+
+
 t = 6
 dtLB = t-DragonFrame
 dtUB = t+1
