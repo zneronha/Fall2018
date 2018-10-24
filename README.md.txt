@@ -10,4 +10,4 @@ To Do
 - Implement annotations for points 
 
 
-**NB.** Dragontail updating MUST use reset command and not the set command (even though the ball updating uses the set)  
+**NB.** Dragontail updating MUST use reset command and not the set command (even though the ball updating uses the set)  hello
