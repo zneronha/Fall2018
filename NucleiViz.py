@@ -26,16 +26,16 @@ rad = 5
 
 
 
-theta = np.linspace(0,2*np.pi,interpstep)
-z = np.linspace(1,numparticles,numparticles)
-x = rad*np.cos(theta)
-y = rad*np.sin(theta)
-b = np.ones((numparticles,interpstep))
-xx = b*x
-yy = b*y
-z = np.array(z)
-z = np.reshape(z,(numparticles,1))
-zz = z*b
+#theta = np.linspace(0,2*np.pi,interpstep)
+#z = np.linspace(1,numparticles,numparticles)
+#x = rad*np.cos(theta)
+#y = rad*np.sin(theta)
+#b = np.ones((numparticles,interpstep))
+#xx = b*x
+#yy = b*y
+#z = np.array(z)
+#z = np.reshape(z,(numparticles,1))
+#zz = z*b
 
 #p = np.empty((9,20))
 #p[:] = np.nan
@@ -43,13 +43,13 @@ zz = z*b
 #yy[1:10,0:20] = p
 #zz[1:10,0:20] = p
 
-#xlsZ = pd.ExcelFile('C:\Users\zjner\Desktop\w18_combineddata.xlsx')
-#dxx = pd.read_excel(xlsZ,'xStore')
-#dyy = pd.read_excel(xlsZ,'yStore')
-#dzz = pd.read_excel(xlsZ,'zStore')
-#xx = np.array(dxx)
-#yy = np.array(dyy)
-#zz = np.array(dzz)
+xlsZ = pd.ExcelFile('C:\Users\zjner\Desktop\ConvertedData\w20_combineddata.xls')
+dxx = pd.read_excel(xlsZ,'xStore')
+dyy = pd.read_excel(xlsZ,'yStore')
+dzz = pd.read_excel(xlsZ,'zStore')
+xx = np.array(dxx)
+yy = np.array(dyy)
+zz = np.array(dzz)
 
 #xx = pd.read_csv('C:\Users\zjner\Desktop\w18_Xdata.csv')
 #yy = pd.read_csv('C:\Users\zjner\Desktop\w18_Ydata.csv')
@@ -121,7 +121,7 @@ def updateAnimation(xx,yy,zz,xT,yT,zT):
 
 #set background color to black and plot
 v = mlab.figure(figure=None,bgcolor = (0,0,0))
-ball = mlab.points3d(xx[:,0], yy[:,0], zz[:,0],scale_factor = 0.8, color=(0,1,1))
+ball = mlab.points3d(xx[:,0], yy[:,0], zz[:,0],scale_factor = 6, color=(0,1,1))
 #text = list()
 #for k in range(0,np.size(xx,axis=0)):
 #    text.append(mlab.text3d(xx[k,0], yy[k,0], zz[k,0],'cell ' + repr(k),scale=(5,5,5)))
