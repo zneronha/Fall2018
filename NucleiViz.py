@@ -43,7 +43,7 @@ rad = 5
 #yy[1:10,0:20] = p
 #zz[1:10,0:20] = p
 
-xlsZ = pd.ExcelFile('C:\Users\zjner\Desktop\ConvertedData\w20_combineddata.xls')
+xlsZ = pd.ExcelFile('C:\Users\zjner\Desktop\ConvertedData\w18_combineddata.xls')
 dxx = pd.read_excel(xlsZ,'xStore')
 dyy = pd.read_excel(xlsZ,'yStore')
 dzz = pd.read_excel(xlsZ,'zStore')
